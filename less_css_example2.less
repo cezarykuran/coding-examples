@@ -1,0 +1,226 @@
+/* gamma */
+body[data-gamma='lo'] {
+    &,
+    & .gamma .fa-circle-o {color: darken(@text-color, 7%)}
+ }
+body[data-gamma='normal'] {
+    &,
+    & .gamma .fa-adjust {color: @text-color;}
+ }
+body[data-gamma='hi'] {
+    &,
+    & .gamma .fa-circle {color: lighten(@text-color, 7%)}
+ }
+ 
+
+/* stats */
+#sc-stats {    
+	text-transform: uppercase;
+
+	.sc-stats-row {
+        margin-bottom: 1em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+	}
+
+	.sc-stats-header {
+		line-height: 1;
+	}
+	.sc-stats-content {
+		font-weight: bold;
+	}
+	/*
+	:last-child .sc-stats-content{
+        min-height: 2 * @line-height-computed;
+    }
+    */
+}
+
+
+/* player */
+#sc-player {
+    overflow: auto;
+    visibility: hidden;
+}
+
+.sc-player-playin-right, .sc-player-btn {
+    float: right;
+    margin-left: 15px;
+}
+
+.sc-player-playin-right {
+    display: none;
+    width: 100px;
+    height: 30px;
+    margin-top: 35px;
+
+    a {
+        display: block;
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        background-image: url('../img/sc-player-playin.png');
+        
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &.wmp {background-position: 0 0}
+        &.wmp:hover {background-position: 0 -30px}
+        &.ra {background-position: -30px 0}
+        &.ra:hover {background-position: -30px -30px}
+        &.wa {background-position: -60px 0}
+        &.wa:hover {background-position: -60px -30px}
+    }
+}
+
+
+.sc-player-btn {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-image: url('../img/sc-player-btn.png');
+	
+	&:hover {
+        background-position: 0 -100px;
+    }
+    &.playing {
+        background-position: 100px 0;
+    }
+    &.playing:hover {
+        background-position: 100px -100px;
+    }
+}
+
+ 
+.sc-player-vol {
+    overflow: hidden;
+    margin-top: 41px;
+}
+.sc-player-vol,
+.sc-player-vol-l,
+.sc-player-vol-r,
+.sc-player-vol-slider-container,
+.sc-player-vol-slider .ui-slider-handle {
+	height: 19px;
+ }
+
+.sc-player-vol-l,
+.sc-player-vol-r,
+.sc-player-vol-slider .ui-slider-handle {
+	background-image: url('../img/sc-player-vol.png');
+	background-repeat: no-repeat;
+	cursor: pointer;
+ }
+
+.sc-player-vol-l,
+.sc-player-vol-r {
+	display: block;
+	width: 25px;
+ }
+.sc-player-vol-l {
+	float: left;
+	margin-right: 10px;
+	background-position: 0 0;
+	
+	&:hover {
+        background-position: 0 -19px;
+	}
+	
+	&.sc-player-vol-muted {
+        background-position: -25px 0
+    }
+
+    &.sc-player-vol-muted:hover {
+        background-position: -25px -19px;
+    }
+ }
+.sc-player-vol-r {
+	float: right;
+	margin-left: 10px;
+	background-position: -50px 0;
+	
+    &:hover {
+        background-position: -50px -19px;
+    }
+ }
+
+
+.sc-player-vol-slider-container,
+.sc-player-quality {
+    overflow: hidden;
+ }
+
+
+.sc-player-vol-slider-container {
+	padding: 0 10px 0 9px;
+ }
+.sc-player-vol-slider{
+	height: 1px;
+	margin: 9px 0;
+	border: none;
+	background: @block-border-default;/*#609dcc;*/
+	
+	.ui-slider-handle,
+    .ui-slider-handle.ui-state-hover {
+        top: auto;
+        border: none;
+    }
+    .ui-slider-handle {
+        margin: -9px 0 0 -9px;
+        width: 19px;
+        border: none;
+        background-position: -75px 0;
+
+        &:hover {
+            background-position: -75px -19px;
+        }
+    }
+}
+
+
+.sc-player-quality, .sc-player-playin-bottom {
+    font-size: @font-size-small;
+    font-weight: bold;
+ }
+
+
+.sc-player-quality {
+    margin-top: 1em;
+	text-align: right;
+	white-space: nowrap;
+
+	a {
+        margin-left: 0.5em;
+
+        &:hover {text-decoration: none}
+        &.active{color: inherit;}
+    }
+}
+
+.sc-player-playin-bottom {
+    margin-top: @line-height-computed;
+    
+    a {
+        margin-right: 0.5em;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+
+@media (min-width: 480px) {
+    .sc-player-playin-right {
+        display: block;
+    }
+
+    .sc-player-playin-bottom {
+        display: none;
+    }
+}
+
+
